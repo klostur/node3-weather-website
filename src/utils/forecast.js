@@ -8,7 +8,10 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Wrong city.', undefined)
         } else {
-            callback(undefined, body.daily.data[0].summary + ' Currently is ' + body.currently.temperature + ' degrees. There\'s '+ body.currently.precipProbability + '% of rain.')
+            callback(undefined, body.daily.data[0].summary +
+                 ' Currently is ' + body.currently.temperature + ' degrees. There\'s '+
+                  body.currently.precipProbability + '% of rain. Today\'s lowest temperature is ' + body.daily.data[0].temperatureLow + 
+                  ' degrees and highest is ' + body.daily.data[0].temperatureHigh + ' degrees.')
         }
     }) 
 }
